@@ -4,40 +4,32 @@
     Operations | Create Patients
 {% endblock title %}
 
+{% load static %}
+
 {% block body %}
-    <div class="grid grid-cols-2 gap-2">
+    <div class="grid grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-2">
     	<div class="py-4">
 	    	<div class="card">
-	    		<div class="card-header">
-	    			<p>Create patient</p>
+	    		<div class="card-header bg-gray-200">
+	    			<p class="font-bold">Create patient</p>
 	    		</div>
 
 	    		<div class="card-content">
-			    	<form>
-			    		<div class="grid grid-rows-1 gap-2">
-			    			<div class="grid grid-cols-1 gap-2">
-			    				<label>First name</label>
-			    				<input
-			    					type="text"
-								/>
-			    			</div>
+			    	<form class="grid grid-rows-1 gap-2" method="POST">
+			    		{% csrf_token %}
 
-			    			<div class="grid grid-cols-1 gap-2">
-			    				<label>Last name</label>
-			    				<input
-			    					type="text"
-								/>
-			    			</div>
-			    		</div>
+			    		{% for field in patient_form %}
+			    			<label>
+			    				{{ field.label }}
+			    			</label>
+			    			{% if field.help_text %}
+			    				<small><i>{{ field.help_text }}</i></small>
+		    				{% endif %}
+			    			{{ field }}
+			    		{% endfor %}
 
-			    		<div class="grid grid-rows-1 gap-2">
-			    			<div class="grid grid-cols-1 gap-2">
-			    				<label>Gender</label>
-			    				<select class="appearance-none">
-			    					<option>Male</option>
-			    					<option>Female</option>
-			    				</select>
-			    			</div>
+			    		<div class="grid grid-cols-1 gap-2 py-2">
+			    			<button class="bg-blue-700 text-white py-2" type="submit">Submit</button>
 			    		</div>
 			    	</form>
 	    		</div>
@@ -45,14 +37,19 @@
 		</div>
 
     	<div class="py-4">
-    		<p>
-    			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    		</p>
+    		<div class="card">
+    			<div class="card-content">
+    				{% if patients %}
+	    				{% for patient in patients %}					
+				    		{% include 'patients/components/patients.html' %}
+	    				{% endfor %}
+			    	{% else %}
+			    	    <label class="text-gray-400">
+			    	    	No Patients yet
+			    	    </label>
+    				{% endif %}
+    			</div>
+    		</div>
     	</div>
     </div>
 {% endblock body %}

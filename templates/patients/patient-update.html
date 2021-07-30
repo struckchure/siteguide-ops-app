@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Operations | Patient Update
+    Operations | Patient Update | {{ patient.get_full_name }}
 {% endblock title %}
 
 {% block body %}
-    
+    <div class="py-4">
+        {% include 'patients/components/patients-update-form.html' %}
+    </div>
 {% endblock body %}

@@ -1,0 +1,17 @@
+<form class="grid grid-rows-1 gap-2" method="POST">
+	{% csrf_token %}
+
+	{% for field in patient_form %}
+		<label>
+			{{ field.label }}
+		</label>
+		{% if field.help_text %}
+			<small><i>{{ field.help_text }}</i></small>
+		{% endif %}
+		{{ field }}
+	{% endfor %}
+
+	<div class="grid grid-cols-1 gap-2 py-2">
+		<button class="bg-blue-700 text-white py-2" type="submit">Update</button>
+	</div>
+</form>

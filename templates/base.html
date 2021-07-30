@@ -14,7 +14,7 @@
 	{% endblock styles %}
 </head>
 <body>
-	<nav class="w-full p-2 bg-gray-900">
+	<nav class="w-full p-2 bg-gray-900 sticky top-0">
 		<div class="container mx-auto grid grid-cols-6 gap-4">
 			<div class="col-start-1 col-end-3">
 				<button class="p-1 px-2 md:font-bold">
@@ -32,10 +32,9 @@
 				</button>
 			</div>
 		</div>
-
 	</nav>
 
-	<div class="container mx-auto">
+	<div class="container mx-auto px-2">
 		{% block body %}
 		{% endblock body %}
 	</div>

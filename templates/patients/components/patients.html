@@ -1,0 +1,17 @@
+{% load humanize %}
+
+<div class="border-2 border-solid border-gray-200 my-2 rounded">
+	<div class="p-2">
+		{{ patient.get_full_name }}
+	</div>
+
+	<div class="p-2">
+		<label class="text-gray-500">
+			{{ patient.updated|naturaltime }}
+		</label>
+	</div>
+
+	<div class="p-2 bg-gray-200">
+		{% include 'patients/components/patients-actions.html' %}
+	</div>
+</div>

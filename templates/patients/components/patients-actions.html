@@ -1,0 +1,8 @@
+<div>
+	<a href="{% url "patients:update" patient.id %}">
+	    <button class="my-1 md:my-0 p-2 py-1 text-white bg-blue-700 rounded">Update</button>
+	</a>
+	<a href="{% url "patients:delete" patient.id %}">
+	    <button class="my-1 md:my-0 p-2 py-1 text-white bg-red-700 rounded">Delete</button>
+	</a>
+</div>

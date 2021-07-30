@@ -7,10 +7,43 @@ option {
 	border: 2px solid lightgray;
 	padding: 4px 6px;
 	border-radius: 4px;
+	width: 100%;
+}
+
+textarea {
+	min-height: 40px;
 }
 
 button {
 	border-radius: 4px;
+}
+
+table {
+	width: 100%;
+}
+
+thead,
+tbody {
+	text-align: left;
+}
+
+thead tr,
+tbody tr:nth-child(even) {
+	background-color: rgba(0, 0, 0, .1);
+	transition: 1.2s;
+}
+
+tbody tr:hover {
+	background-color: rgba(0, 0, 0, .15);
+	cursor: pointer;
+}
+
+td, th {
+	padding: .4em;
+}
+
+.card {
+	transition: 1.2s;
 }
 
 .card {
@@ -18,15 +51,26 @@ button {
 		0 4px 6px -2px rgba(0, 0, 0, 0.05);
 	border-radius: 4px;
 	background-color: #fff;
+	border: 1px solid lightgray;
 }
 
-.card-header,
+.card-header {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
 .card-footer {
-	background-color: lightgray;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 }
 
 .card-header,
 .card-footer,
 .card-content {
 	padding: 1em;
+}
+
+.cancel-button {
+	background-color: transparent;
+	color: rgba(0, 0, 0, .5);
 }

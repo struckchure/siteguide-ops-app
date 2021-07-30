@@ -1,9 +1,36 @@
 {% extends "base.html" %}
 
+{% load humanize %}
+
 {% block title %}
     Operations | Patients Lists
 {% endblock title %}
 
 {% block body %}
-    
+    <div class="p-4">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Full name</th>
+                    <th>Gender</th>
+                    <th>Last updated</th>
+                    <th cols="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ patient.get_full_name }}</td>
+                        <td>{{ patient.get_gender }} </td>
+                        <td>{{ patient.updated|naturaltime }}</td>
+                        <td cols="2">
+                            {% include 'patients/components/patients-actions.html' %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock body %}

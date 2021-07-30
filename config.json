@@ -1,3 +1,4 @@
 {
-	"SECRET_KEY": "6^ue-@vh7wdf(t%u8xzfymgpu=x$7*)weiy2*%x(9l!%(t6n4o"
+	"SECRET_KEY": "6^ue-@vh7wdf(t%u8xzfymgpu=x$7*)weiy2*%x(9l!%(t6n4o",
+	"ALLOWED_HOSTS": []
 }
